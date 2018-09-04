@@ -25,3 +25,8 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+.zig{
+  border:7px solid #26DD57;
+  border-radius:7px;
+  position:absolute;
+}

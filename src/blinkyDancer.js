@@ -1,6 +1,5 @@
 var MakeBlinkyDancer = function(top, left, timeBetweenSteps) {
  // this.blinkyDancer = MakeDancer(top, left, timeBetweenSteps);
- // this.oldStep = this.blinkyDancer.step;
   MakeDancer.call(this, top, left, timeBetweenSteps);
 };
 // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
@@ -9,6 +8,7 @@ MakeBlinkyDancer.prototype = Object.create(MakeDancer.prototype);
 MakeBlinkyDancer.prototype.constructor = MakeBlinkyDancer;
 
 MakeBlinkyDancer.prototype.step = function() {
+  //MakeDancer.prototype.step.call(this);
   MakeDancer.prototype.step.call(this);
   // call the old version of step at the beginning of any call to this new version of step
  // this.oldStep();
@@ -17,4 +17,3 @@ MakeBlinkyDancer.prototype.step = function() {
   // other effects you can use on a jQuery-wrapped html tag.
   this.$node.toggle();
 };
-
