@@ -1,20 +1,24 @@
 var ZigZagDancer = function(top, left, timeBetweenSteps) {
   MakeDancer.call(this, top, left, timeBetweenSteps);
- // this.$node = $('<span class="zig"></span>');
- // this.color = "#26DD57";
- // console.log();
+  this.$node = $('<span class="zig"></span>');
+  this.setPosition(top,left);
+  this.zag();
 };
 
 ZigZagDancer.prototype = Object.create(MakeDancer.prototype);
 ZigZagDancer.prototype.constructor = ZigZagDancer;
 
 ZigZagDancer.prototype.zag = function() {
-  console.log("Here is the node: ", this.$node);
-
-  MakeDancer.prototype.step.call(this);
-  TweenMax.to(this.$node, 0.5, {y: "+=250", delay: 0.2, ease: Power2.easeInOut});
-  TweenMax.to(this.$node, 0.5, {y: "-=250", x: "-=300", delay: 0.7, ease: Power2.easeInOut});
-  TweenMax.to(this.$node, 0.5, {y: "+=250", delay: 1.2, ease: Power2.easeInOut});
+  // MakeDancer.prototype.step.call(this);
+  // var t1 = new TimelineMax({});
+  console.log("Hi, I'm the node: ", this.$node)
+  var t1 = new TimelineMax({repeat: -1, repeatDelay:0.25});
+  t1.to(this.$node, 0.25, {x: "+=250", delay: 0, ease: Power2.easeInOut});
+  t1.to(this.$node, 0.25, {x: "-=250", y: "-=150", delay: 0, ease: Power2.easeInOut});
+  t1.to(this.$node, 0.25, {x: "+=250", delay: 0, ease: Power2.easeInOut});
+  t1.to(this.$node, 0.25, {x: "-=250", delay: 0, ease: Power2.easeInOut});
+  t1.to(this.$node, 0.25, {x: "+=250", y: "+=150", delay: 0, ease: Power2.easeInOut});
+  t1.to(this.$node, 0.25, {x: "-=250", delay: 0, ease: Power2.easeInOut});
 };
 
 // MakeDancer.prototype.setColor = function(color) {

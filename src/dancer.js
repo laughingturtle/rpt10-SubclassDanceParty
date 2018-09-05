@@ -23,7 +23,12 @@ MakeDancer.prototype.setPosition = function(top, left) {
     left: left
   };
   this.$node.css(styleSettings);
-};
+},
 
+MakeDancer.prototype.disappear = function() {
+  this.$node.click(function() {
+    TweenMax.set(this.$node, {display: 'none'});
+  })
+};
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
   // this one sets the position to some random default point within the body
