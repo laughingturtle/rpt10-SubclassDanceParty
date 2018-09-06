@@ -28,14 +28,28 @@ $(document).ready(function() {
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
 
-    // var zig = new dancerMakerFunction(
-    //   $("body").height() * Math.random(),
-    //   $("body").width() * Math.random(),
-    //   Math.random() * 1000
-    // );
-    // $('body').append(zig.$node);
+
+
+    $(".btn").click(function(){
+      console.log(window.dancers);
+        var currDancers = window.dancers;
+
+        for(var i = 0; i < currDancers.length; i++){
+         // console.log('current dancer = ', currDancers[i].$node[0]);
+
+         // something like this
+         // TweenMax.to(currDancers[i].$node, 0.75, {top: '50px', ease:Quad.easeOut});
+
+         // hard coded version
+         TweenMax.to(".heart", 0.75, {top: '50px', ease:Quad.easeOut});
+         TweenMax.to(".dancer", 0.75, {top: '50px', ease:Quad.easeOut});
+         TweenMax.to(".zig", 0.75, {top: '50px', ease:Quad.easeOut});
+         TweenMax.to(".bouncy", 0.75, {top: '50px', ease:Quad.easeOut});
+      }
+    });
   });
 });
 

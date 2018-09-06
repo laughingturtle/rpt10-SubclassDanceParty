@@ -4,6 +4,8 @@ var MakeDancer = function(top, left, timeBetweenSteps) {
   this._timeBetweenSteps = timeBetweenSteps;
   this.setPosition(top, left);
   this.step();
+  this.vanish();
+  console.log('our node = ',this.$node);
 };
 // use jQuery to create an HTML <span> tag
 
@@ -24,11 +26,15 @@ MakeDancer.prototype.setPosition = function(top, left) {
   };
   this.$node.css(styleSettings);
 },
-
-MakeDancer.prototype.disappear = function() {
-  this.$node.click(function() {
-    TweenMax.set(this.$node, {display: 'none'});
-  })
+MakeDancer.prototype.vanish = function() {
+  //grab the clicked on dom node, focus it and hide the focused
+  console.log('our clicked node = ', this.$node[0]);
+  $(this.$node).click(function(){
+      $(this.$node).focus(function(){
+      //  .hide();
+    });
+  });
 };
+
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
   // this one sets the position to some random default point within the body
